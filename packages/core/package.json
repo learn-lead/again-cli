@@ -1,6 +1,6 @@
 {
   "name": "dc-cli-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "> TODO: description",
   "author": "dcbryant <dcbryant753@gmail.com>",
   "homepage": "",
@@ -17,6 +17,6 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "dc-cli-utils": "^1.0.0"
+    "dc-cli-utils": "^1.0.1"
   }
 }
