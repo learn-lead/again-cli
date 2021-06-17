@@ -1,6 +1,6 @@
 {
   "name": "dc-cli-core",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "> TODO: description",
   "author": "dcbryant <dcbryant753@gmail.com>",
   "homepage": "",
@@ -20,7 +20,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "dc-cli-utils": "^1.0.1"
+    "dc-cli-utils": "^1.0.4"
   },
   "publishConfig": {
     "access": "public"
