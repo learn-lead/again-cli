@@ -1,5 +1,5 @@
 {
-  "name": "dc-cli-utils",
+  "name": "@dc-cli/utils",
   "version": "1.0.4",
   "description": "> TODO: description",
   "author": "dcbryant <dcbryant753@gmail.com>",
