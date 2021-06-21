@@ -14,13 +14,13 @@
     "lib"
   ],
   "bin": {
-    "dc-cli": "bin/index.js"
+    "again-cli": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "dc-cli-utils": "^1.0.4"
+    "@again-cli/utils": "file:../utils"
   },
   "publishConfig": {
     "access": "public"
