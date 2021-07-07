@@ -1,11 +1,11 @@
 {
-  "name": "@again-cli/core",
+  "name": "@again-cli/log",
   "version": "1.0.6",
   "description": "> TODO: description",
   "author": "dcbryant <dcbryant753@gmail.com>",
-  "homepage": "",
+  "homepage": "https://github.com/learn-lead/dc-cli#readme",
   "license": "ISC",
-  "main": "lib/core.js",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -13,16 +13,17 @@
   "files": [
     "lib"
   ],
-  "bin": {
-    "again-cli": "bin/index.js"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learn-lead/dc-cli.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "dependencies": {
-    "@again-cli/utils": "file:../utils"
+  "bugs": {
+    "url": "https://github.com/learn-lead/dc-cli/issues"
   },
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "npmlog": "^4.1.2"
   }
 }
