@@ -1,6 +1,7 @@
 const pkg = require('../package.json')
 const log = require('@again-cli/log')
 const init = require('@again-cli/init')
+const exec = require('@again-cli/exec')
 const constant = require('./constant')
 const semver = require('semver')
 const colors = require('colors/safe')
@@ -36,7 +37,7 @@ function registerCommand() {
     program
         .command('init [projectName]')
         .option('-f, --force', '是否强制初始化')
-        .action(init)
+        .action(exec)
 
     // 开启debug模式
     program.on('option:debug', function () {
