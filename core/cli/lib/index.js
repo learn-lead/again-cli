@@ -1,5 +1,6 @@
 const pkg = require('../package.json')
 const log = require('@again-cli/log')
+const init = require('@again-cli/init')
 const constant = require('./constant')
 const semver = require('semver')
 const colors = require('colors/safe')
@@ -37,6 +38,11 @@ function registerCommand() {
         .version(pkg.version)
         .option('-d, --debug', '是否开启debug', false)
 
+    program
+        .command('init [projectName]')
+        .option('-f, --force', '是否强制初始化')
+        .action(init)
+
     // 开启debug模式
     program.on('option:debug', function () {
         if (program.opts().debug) {
@@ -56,9 +62,8 @@ function registerCommand() {
             console.log(colors.red('可用命令：' + availableCommands.join(',')))
         }
     });
-
     if (program.args && program.args.length < 1) {
-        program.outputHelp()
+        // program.outputHelp()
         console.log()
     } 
 

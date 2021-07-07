@@ -23,6 +23,7 @@
     "@again-cli/get-npm-info": "file:../../utils/get-npm-info",
     "@again-cli/log": "file:../../utils/log",
     "@again-cli/utils": "file:../../utils/utils",
+    "@again-cli/init": "file:../../commands/init",
     "colors": "^1.4.0",
     "commander": "^8.0.0",
     "dotenv": "^10.0.0",
