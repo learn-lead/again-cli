@@ -16,13 +16,7 @@ let args, config;
 
 async function core() {
     try {
-        checkPkgVersion()
-        checkNodeVersion()
-        checkRoot()
-        checkUserHome()
-        // checkInputArgs()
-        checkEnv()
-        await checkGlobalUpdate()
+        await prepare()
 
         registerCommand()
     } catch (e) {
@@ -37,6 +31,7 @@ function registerCommand() {
         .usage('<command> [options]')
         .version(pkg.version)
         .option('-d, --debug', '是否开启debug', false)
+        .option('-tp, --targetPath <targetPath>', '是否指定本地调试文件路径', '')
 
     program
         .command('init [projectName]')
@@ -52,6 +47,10 @@ function registerCommand() {
         }
         log.level = process.env.LOG_LEVEL
         log.verbose('test')
+    })
+
+    program.on('option:targetPath', function () {
+        process.env.CLI_TARGET_PATH = program.opts().targetPath
     })
 
     // 监听未知命令
@@ -98,7 +97,7 @@ function checkEnv() {
         })
     }
     config = createDefaultConfig()
-    log.verbose('环境变量', process.env.CLI_HOME_PATH)
+    // log.verbose('环境变量', process.env.CLI_HOME_PATH)
    
 }
 
@@ -115,19 +114,19 @@ function createDefaultConfig() {
     process.env.CLI_HOME_PATH = cliConfog.cliHome
 }
 
-function checkArgs() {
-    if (args.debug) {
-        process.env.LOG_LEVEL = 'verbose'
-    } else {
-        process.env.LOG_LEVEL = 'info'
-    }
-    log.level = process.env.LOG_LEVEL
-}
+// function checkArgs() {
+//     if (args.debug) {
+//         process.env.LOG_LEVEL = 'verbose'
+//     } else {
+//         process.env.LOG_LEVEL = 'info'
+//     }
+//     log.level = process.env.LOG_LEVEL
+// }
 
-function checkInputArgs() {
-    args = minimist(process.argv.slice(2))
-    checkArgs()
-}
+// function checkInputArgs() {
+//     args = minimist(process.argv.slice(2))
+//     checkArgs()
+// }
 
 function checkUserHome() {
     if (!userHome || !pathExists(userHome)) {
@@ -153,6 +152,16 @@ function checkNodeVersion() {
         throw new Error(colors.red(`again-cli需要安装${lowestVersion}以上的版本的Node.js`))
     }
 
+}
+
+async function prepare(params) {
+    checkPkgVersion()
+    checkNodeVersion()
+    checkRoot()
+    checkUserHome()
+    // checkInputArgs()
+    checkEnv()
+    await checkGlobalUpdate()
 }
 
 // semver
